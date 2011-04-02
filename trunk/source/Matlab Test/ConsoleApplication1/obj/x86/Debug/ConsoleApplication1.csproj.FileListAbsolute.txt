@@ -1,0 +1,14 @@
+D:\Users\Darko\Desktop\Matlab Test\ConsoleApplication1\obj\x86\Debug\Interop.MLApp.dll
+D:\Users\Darko\Desktop\Matlab Test\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.csproj.ResolveComReference.cache
+D:\Users\Darko\Desktop\Matlab Test\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+D:\Users\Darko\Desktop\Matlab Test\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+D:\Users\Darko\Desktop\Matlab Test\ConsoleApplication1\bin\Debug\AForge.Math.dll
+D:\Users\Darko\Desktop\Matlab Test\ConsoleApplication1\bin\Debug\AForge.dll
+D:\Users\Darko\Desktop\Matlab Test\ConsoleApplication1\bin\Debug\Interop.MLApp.dll
+D:\Users\Darko\Desktop\Matlab Test\ConsoleApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Users\Darko\Desktop\Matlab Test\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.exe
+D:\Users\Darko\Desktop\Matlab Test\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.pdb
+D:\Users\Darko\Desktop\MatlabTest\ConsoleApplication1\obj\x86\Debug\Interop.MLApp.dll
+D:\Users\Darko\Desktop\MatlabTest\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.csproj.ResolveComReference.cache
+D:\Users\Darko\Desktop\MatlabTest\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.exe
+D:\Users\Darko\Desktop\MatlabTest\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.pdb
