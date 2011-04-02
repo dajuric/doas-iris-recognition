@@ -45,6 +45,13 @@ namespace ConsoleApplication1
 
             matlab.PutFullMatrix(matrixName, "base", matrixRe, matrixIm);
         }
+		
+		
+		
+		public static void PutFullMatrix(this MLAppClass matlab, string matrixName, bool[] matrix)
+        {
+            matlab.PutWorkspaceData(matrixName, "base", matrix);
+        }
 
         public static void PutFullMatrix(this MLAppClass matlab, string matrixName, int[] matrix)
         {
@@ -64,6 +71,13 @@ namespace ConsoleApplication1
             matlab.PutFullMatrix(matrixName, "base", matrixRe, matrixIm);
         }
 
+		
+		
+		public static void PutFullMatrix(this MLAppClass matlab, string matrixName, bool[,] matrix)
+        {
+            matlab.PutWorkspaceData(matrixName, "base", matrix); 
+        }
+		
         public static void PutFullMatrix(this MLAppClass matlab, string matrixName, int[,] matrix)
         {
             matlab.PutWorkspaceData(matrixName, "base", matrix); 
@@ -129,7 +143,6 @@ namespace ConsoleApplication1
 
                 case "Complex":
                     matlab.ExecuteWithErrorCheck("size(" + matrixName + ", 1);");
-
                     int numOfRows = (int)((double)matlab.GetVariable("ans", "base"));
                     matlab.ExecuteWithErrorCheck("size(" + matrixName + ", 2);");
                     int numOfCols = (int)((double)matlab.GetVariable("ans", "base"));
