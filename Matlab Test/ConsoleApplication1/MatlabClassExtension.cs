@@ -96,6 +96,8 @@ namespace ConsoleApplication1
             matlab.PutFullMatrix(matrixName, "base", matrixRe, matrixIm);
         }
 
+
+
         public static double[,] GetFullMatrix(this MLAppClass matlab, string matrixName)
         {
             return matlab.GetFullMatrix<double[,]>(matrixName);
@@ -107,7 +109,7 @@ namespace ConsoleApplication1
             string varClass = (string)matlab.GetVariable("ans", "base");
 
             string requestedVariableType = typeof(T).Name;
-            //requestedVariableType = requestedVariableType.Replace("[]", ""); //ne može se cast u []
+            //requestedVariableType = requestedVariableType.Replace("[]", ""); //ne može se cast u [] (nije napravljeno :))
             requestedVariableType = requestedVariableType.Replace("[,]", "");
 
             object output = null;
@@ -170,6 +172,8 @@ namespace ConsoleApplication1
             return (T)output;
         }
 
+
+
         public static string GetMyScriptFolder(this MLAppClass matlab)
         {
             string currentDir = Directory.GetCurrentDirectory();  // App\bin\Relase
@@ -183,6 +187,8 @@ namespace ConsoleApplication1
         {
             matlab.ExecuteWithErrorCheck("cd '" + path + "'");
         }
+
+
 
         public static double[,] ConvertToDouble(this int[,] matrix)
         {
@@ -201,7 +207,6 @@ namespace ConsoleApplication1
 
             return matrixDouble;
         }
-
 
         public static void ConvertToDouble(this Complex[] matrix, out double[] matrixRe, out double[] matrixIm)
         {
