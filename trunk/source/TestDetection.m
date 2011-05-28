@@ -8,6 +8,8 @@ function [ ] = TestDetection( image_name )
 imgEnh=imgProcessForCircDetection(img,1,2);
 [center radius] = FindPupil(img, map);
 imgEdges=edge(imgEnh,'canny');
+figure;
+imshow(imgEdges);
 [center2 radius2]=FindIrisSimple(center,radius,imgEdges);
 
 figure;
