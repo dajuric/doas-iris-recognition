@@ -10,8 +10,9 @@
 %najbolje paše za njegov postupak detekcije 
 
 %ukratko ovo je predprocesiranje za kušta
-function img_adj = imgProcessForCircDetection(img,c,gamma)
+function img_adj = imgProcessForCircDetection(img,c,gamma)    
     img=medfilt2(img,[20 20]);
+    img=double(img);
     img=c*(img.^gamma);
     img_adj=imscale(img,0,255);
     img_adj=uint8(img_adj);
