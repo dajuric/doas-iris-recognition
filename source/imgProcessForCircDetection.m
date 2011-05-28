@@ -11,7 +11,7 @@
 
 %ukratko ovo je predprocesiranje za kušta
 function img_adj = imgProcessForCircDetection(img,c,gamma)    
-    img=medfilt2(img,[20 20]);
+    img=medfilt2(img,[20 20],'symmetric');
     img=double(img);
     img=c*(img.^gamma);
     img_adj=imscale(img,0,255);

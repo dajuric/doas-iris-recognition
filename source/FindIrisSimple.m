@@ -1,7 +1,9 @@
 function [cen rad] = FindIrisSimple(pupilCenter,pupilRadius, imgEdges)
 
-x=pupilCenter(1);
-y=pupilCenter(2);
+x=round(pupilCenter(1));
+y=round(pupilCenter(2));
+pupilRadius=round(pupilRadius);
+
 
 [imgw imgh]=size(imgEdges);
 %find left border
@@ -27,3 +29,9 @@ cen=zeros(2,1);
 cen(1)=centerx;
 cen(2)=y;
 rad=uint16((right-left)/2);
+if((y+rad)>imgh)
+    rad=imgh-y;
+end
+if((y-rad)<0)
+    rad=y;
+end

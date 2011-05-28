@@ -28,6 +28,8 @@ else
     thresh = coef * pixelSum / numOfPixels
     binary_image = im2bw(gray_image, thresh/255);
 end
+figure;
+imshow(binary_image);
 proj_horiz = sum(binary_image, 1);
 proj_vert = sum(binary_image, 2);
 
