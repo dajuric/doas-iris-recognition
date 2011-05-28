@@ -18,7 +18,7 @@ MarkCircle(center, radius, 'r');
 MarkCircle(center2, radius2, 'r');
 figure;
 unwrappedIris=UnwrappIris(img,center,radius,center2,radius2);
-unwrappedIrisEnh=imgPreprocessForFeatures(unwrappedIris,1,1.5)
+unwrappedIrisEnh=imgPreprocessForFeatures(unwrappedIris,1,1.5);
 imshow(unwrappedIrisEnh);
 
 
