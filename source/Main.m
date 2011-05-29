@@ -3,7 +3,7 @@ addpath( fullfile(pwd, 'ImagePreprocess') );
 addpath( fullfile(pwd, 'FeatureExtractor') );
 
 
-samplesPath = 'E:\CASIA_DATABASE_1.0\';
+samplesPath = 'C:\Users\ivan\Documents\Fax\DOAS\projekt\CASIA_DATABASE_1.0\';
 maxNumberOfSamplesPerClass = 5; %broj uzoraka za klasu (mapa 1 i mapa 2)
 
 [imageNames, classes] = ImageLoader.LoadImagePaths(samplesPath, maxNumberOfSamplesPerClass);
