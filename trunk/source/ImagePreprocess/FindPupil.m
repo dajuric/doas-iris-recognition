@@ -1,18 +1,35 @@
-function [ center radius ] = FindPupil( image, map, coef)
+function [ center radius ] = FindPupil( image, map, coef, n_extremes, toler)
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 
 if(~exist('coef', 'var'))
-    coef = 0.52;
+    coef = 0.3;
 end
 
 if(isempty(coef))
-    coef = 0.52;
+    coef = 0.3;
+end
+
+if(~exist('n_extremes', 'var'))
+    n_extremes = 3;
+end
+
+if(isempty(n_extremes))
+    n_extremes = 3;
+end
+
+if(~exist('toler', 'var'))
+    toler = 0.14;
+end
+
+if(isempty(toler))
+    toler = 0.14;
 end
 
 dims = size(image);
 if(length(dims) == 3)
     gray_image = rgb2gray(image);
+    gray_image = medfilt2(gray_image, [15, 15]);
     gray_map = rgb2gray(map);
     
     numOfPixels = dims(1) * dims(2);
@@ -22,10 +39,11 @@ if(length(dims) == 3)
     binary_image = im2bw(gray_image, gray_map, thresh/255);
 else
     gray_image = ind2gray(image, map); 
+    gray_image = medfilt2(gray_image, [15, 15]);
     numOfPixels = dims(1) * dims(2);
     pixelSum = sum(gray_image);
     pixelSum = sum(pixelSum);
-    thresh = coef * pixelSum / numOfPixels
+    thresh = coef * pixelSum / numOfPixels;
     binary_image = im2bw(gray_image, thresh/255);
 end
 % figure;
@@ -33,13 +51,24 @@ end
 proj_horiz = sum(binary_image, 1);
 proj_vert = sum(binary_image, 2);
 
-ignore_first = 0;
-ignore_last = 0;
 diff_horiz = diff(proj_horiz);
 diff_vert = diff(proj_vert);
 
-[minh maxh] = FindMinMax(diff_horiz, ignore_first, ignore_last);
-[minv maxv] = FindMinMax(diff_vert, ignore_first, ignore_last);
+%figure;
+%hold on;
+%subplot(2, 1, 1); plot(diff_horiz); title('horiz');
+%subplot(2, 1, 2); plot(diff_vert); title('vert');
+%figure;
+%hold off;
+
+[minh maxh] = FindMinMax(diff_horiz, n_extremes, toler);
+[minv maxv] = FindMinMax(diff_vert, n_extremes, toler);
+
+if(minh < 0 || minv < 0 || maxh < 0 || maxv < 0)
+    radius = -1;
+    center = [];
+    return;
+end
 
 center = zeros(2, 1);
 rad1 = abs((maxh - minh) / 2);
